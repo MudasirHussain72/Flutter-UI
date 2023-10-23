@@ -25,42 +25,31 @@ class _ProductsListScreenState extends State<ProductsListScreen> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            Container(
-              padding: const EdgeInsets.all(16), // Consistent padding
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Container(
-                    padding: const EdgeInsets.all(16), // Padding for brand name
-                    child: const Text(
-                      'Wireless\nHeadphones',
-                      style: TextStyle(
-                        fontSize: 24, // Adjust font size as needed
-                        fontWeight: FontWeight.bold,
-                      ),
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Container(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 30, vertical: 40),
+                  child: const Text(
+                    'Wireless\nHeadphones',
+                    style: TextStyle(
+                      fontSize: 24, // Adjust font size as needed
+                      fontWeight: FontWeight.bold,
                     ),
                   ),
-                  RotationTransition(
+                ),
+                SizedBox(
+                  height: 10,
+                  width: 80,
+                  child: RotationTransition(
                     turns: const AlwaysStoppedAnimation(270 / 360),
-                    // child: Container(
-                    //   padding:
-                    //       const EdgeInsets.all(16), // Padding for brand logo
-                    //   // width: 100, // Adjust the width as needed
-                    //   // height: 100, // Adjust the height as needed
-                    //   decoration: const BoxDecoration(
-                    //     image: DecorationImage(
-                    //       // fit: BoxFit.contain,
-                    //       image: AssetImage('assets/images/bose logo.png'),
-                    //     ),
-                    //   ),
-                    // ),
                     child: Image.asset(
-                        height: 100,
-                        fit: BoxFit.fitWidth,
-                        'assets/images/bose logo.png'),
+                        fit: BoxFit.cover, 'assets/images/bose logo.png'),
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
             GridView.builder(
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
@@ -74,7 +63,7 @@ class _ProductsListScreenState extends State<ProductsListScreen> {
               itemBuilder: (context, index) {
                 return Container(
                   margin: const EdgeInsets.all(10), // Consistent margin
-                  padding: const EdgeInsets.all(10), // Consistent padding
+                  padding: const EdgeInsets.all(20), // Consistent padding
                   width: 323,
                   height: 495,
                   decoration: const BoxDecoration(
@@ -87,7 +76,7 @@ class _ProductsListScreenState extends State<ProductsListScreen> {
                     children: [
                       Container(
                         width: double.infinity,
-                        height: 120,
+                        height: 135,
                         decoration: BoxDecoration(
                           image: DecorationImage(
                             fit: BoxFit.fitHeight,
@@ -104,10 +93,12 @@ class _ProductsListScreenState extends State<ProductsListScreen> {
                               fontWeight: FontWeight.bold,
                             ),
                           ),
+                          SizedBox(height: 10),
                           Text(
                             headphones[index].price,
                             style: const TextStyle(
-                              color: Colors.blue, // Adjust text color as needed
+                              color: Color(
+                                  0xFFEBEBEB), // Adjust text color as needed
                             ),
                           ),
                         ],
