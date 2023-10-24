@@ -1,4 +1,5 @@
 import 'package:animated_headphones_products_ui/models/headphones_model.dart';
+import 'package:animated_headphones_products_ui/screens/product_detail_screen.dart';
 import 'package:flutter/material.dart';
 
 class ProductsListScreen extends StatefulWidget {
@@ -128,49 +129,55 @@ class _ProductsListScreenState extends State<ProductsListScreen>
                   position: index % 2 == 0
                       ? _leftSlideAnimation
                       : _rightSlideAnimation,
-                  child: Container(
-                    margin: const EdgeInsets.all(10), // Consistent margin
-                    padding: const EdgeInsets.all(20), // Consistent padding
-                    width: 323,
-                    height: 495,
-                    decoration: const BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.all(Radius.circular(34)),
-                    ),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Container(
-                          width: double.infinity,
-                          height: 135,
-                          decoration: BoxDecoration(
-                            image: DecorationImage(
-                              fit: BoxFit.fitHeight,
-                              image: AssetImage(headphones[index].image),
+                  child: InkWell(
+                    onTap: () => Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => ProductDetailScreen())),
+                    child: Container(
+                      margin: const EdgeInsets.all(10), // Consistent margin
+                      padding: const EdgeInsets.all(20), // Consistent padding
+                      width: 323,
+                      height: 495,
+                      decoration: const BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.all(Radius.circular(34)),
+                      ),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Container(
+                            width: double.infinity,
+                            height: 135,
+                            decoration: BoxDecoration(
+                              image: DecorationImage(
+                                fit: BoxFit.fitHeight,
+                                image: AssetImage(headphones[index].image),
+                              ),
                             ),
                           ),
-                        ),
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              headphones[index].name,
-                              style: const TextStyle(
-                                fontWeight: FontWeight.bold,
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                headphones[index].name,
+                                style: const TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                ),
                               ),
-                            ),
-                            const SizedBox(height: 10),
-                            Text(
-                              headphones[index].price,
-                              style: const TextStyle(
-                                color: Color(
-                                    0xFFEBEBEB), // Adjust text color as needed
+                              const SizedBox(height: 10),
+                              Text(
+                                headphones[index].price,
+                                style: const TextStyle(
+                                    // color: Color(
+                                    //     0xFFEBEBEB), // Adjust text color as needed
+                                    color: Colors.blue),
                               ),
-                            ),
-                          ],
-                        ),
-                      ],
+                            ],
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 );
