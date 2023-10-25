@@ -22,9 +22,9 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
     Future.delayed(const Duration(milliseconds: 100), () {
       setState(() {
         isContainerVisible = true;
-        height = MediaQuery.of(context).size.height * 2;
-        width = MediaQuery.of(context).size.height * 2;
-        radiusGeometry = BorderRadius.circular(10);
+        height = MediaQuery.of(context).size.height * 4;
+        width = MediaQuery.of(context).size.height * 4;
+        radiusGeometry = BorderRadius.circular(50);
       });
     });
     Future.delayed(const Duration(seconds: 1), () {
