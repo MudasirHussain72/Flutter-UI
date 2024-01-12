@@ -1,0 +1,152 @@
+{
+  "type": "Cart",
+  "id": "27b39077-aa57-48a5-b504-914f68fa44dc",
+  "version": 1,
+  "createdAt": "2023-01-23T13:06:28.569Z",
+  "lastModifiedAt": "2023-01-23T13:06:28.569Z",
+  "lastModifiedBy": {
+      "isPlatformClient": false,
+      "userId": "user123",
+      "username": "john_doe"
+  },
+  "createdBy": {
+      "isPlatformClient": false,
+      "userId": "user456",
+      "username": "jane_smith"
+  },
+  "lineItems": [
+      {
+          "id": "item123",
+          "productId": "product789",
+          "quantity": 2,
+          "unitPrice": {
+              "type": "centPrecision",
+              "currencyCode": "EUR",
+              "centAmount": 5000,
+              "fractionDigits": 2
+          },
+          "totalPrice": {
+              "type": "centPrecision",
+              "currencyCode": "EUR",
+              "centAmount": 10000,
+              "fractionDigits": 2
+          },
+          "discounts": [
+              {
+                  "code": "DISCOUNT123",
+                  "amount": {
+                      "type": "centPrecision",
+                      "currencyCode": "EUR",
+                      "centAmount": 500,
+                      "fractionDigits": 2
+                  }
+              }
+          ],
+          "imageUrls": [
+              "https://example.com/item123_1.jpg",
+              "https://example.com/item123_2.jpg"
+          ]
+      },
+      {
+          "id": "item456",
+          "productId": "product567",
+          "quantity": 1,
+          "unitPrice": {
+              "type": "centPrecision",
+              "currencyCode": "EUR",
+              "centAmount": 7500,
+              "fractionDigits": 2
+          },
+          "totalPrice": {
+              "type": "centPrecision",
+              "currencyCode": "EUR",
+              "centAmount": 7500,
+              "fractionDigits": 2
+          },
+          "discounts": [],
+          "imageUrls": [
+              "https://example.com/item456_1.jpg",
+              "https://example.com/item456_2.jpg"
+          ]
+      },
+      {
+          "id": "item789",
+          "productId": "product123",
+          "quantity": 3,
+          "unitPrice": {
+              "type": "centPrecision",
+              "currencyCode": "EUR",
+              "centAmount": 3000,
+              "fractionDigits": 2
+          },
+          "totalPrice": {
+              "type": "centPrecision",
+              "currencyCode": "EUR",
+              "centAmount": 9000,
+              "fractionDigits": 2
+          },
+          "discounts": [
+              {
+                  "code": "DISCOUNT456",
+                  "amount": {
+                      "type": "centPrecision",
+                      "currencyCode": "EUR",
+                      "centAmount": 200,
+                      "fractionDigits": 2
+                  }
+              }
+          ],
+          "imageUrls": [
+              "https://example.com/item789_1.jpg",
+              "https://example.com/item789_2.jpg",
+              "https://example.com/item789_3.jpg"
+          ]
+      }
+  ],
+  "cartState": "Active",
+  "totalPrice": {
+      "type": "centPrecision",
+      "currencyCode": "EUR",
+      "centAmount": 0,
+      "fractionDigits": 2,
+      "tax": {
+          "type": "percentage",
+          "percentage": 10
+      }
+  },
+  "shippingMode": "Multiple",
+  "itemShippingAddresses": [
+      {
+          "itemId": "item123",
+          "address": {
+              "street": "123 Main St",
+              "city": "Cityville",
+              "postalCode": "12345",
+              "country": "Countryland"
+          }
+      },
+      {
+          "itemId": "item456",
+          "address": {
+              "street": "789 Oak St",
+              "city": "Townsville",
+              "postalCode": "67890",
+              "country": "Countryland"
+          }
+      },
+      {
+          "itemId": "item789",
+          "address": {
+              "street": "456 Pine St",
+              "city": "Villageton",
+              "postalCode": "56789",
+              "country": "Countryland"
+          }
+      }
+  ],
+  "inventoryMode": "None",
+  "taxMode": "Platform",
+  "taxRoundingMode": "HalfEven",
+  "taxCalculationMode": "LineItemLevel",
+  "origin": "Customer"
+}
