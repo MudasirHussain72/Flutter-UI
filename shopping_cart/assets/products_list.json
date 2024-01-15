@@ -27,8 +27,8 @@
         }
       ],
       "imageUrls": [
-        "https://example.com/item123_1.jpg",
-        "https://example.com/item123_2.jpg"
+        "https://images.pexels.com/photos/2529148/pexels-photo-2529148.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+        "https://images.pexels.com/photos/2529148/pexels-photo-2529148.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
       ]
     },
     {
@@ -49,8 +49,8 @@
       },
       "discounts": [],
       "imageUrls": [
-        "https://example.com/item456_1.jpg",
-        "https://example.com/item456_2.jpg"
+        "https://images.pexels.com/photos/2529148/pexels-photo-2529148.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+        "https://images.pexels.com/photos/2529148/pexels-photo-2529148.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
       ]
     },
     {
@@ -81,9 +81,8 @@
         }
       ],
       "imageUrls": [
-        "https://example.com/item789_1.jpg",
-        "https://example.com/item789_2.jpg",
-        "https://example.com/item789_3.jpg"
+        "https://images.pexels.com/photos/2529148/pexels-photo-2529148.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+        "https://images.pexels.com/photos/2529148/pexels-photo-2529148.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
       ]
     },
     {
