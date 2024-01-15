@@ -34,6 +34,20 @@ class _CartViewState extends State<CartView> {
           } else if (snapshot.hasError) {
             print(snapshot.error);
             return Text('Error: ${snapshot.error}');
+          } else if (snapshot.data!.lineItems!.isEmpty) {
+            return Center(
+                child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const Text('Your cart is empty'),
+                const SizedBox(height: 20),
+                ElevatedButton(
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                    child: const Text('Shop now')),
+              ],
+            ));
           } else if (!snapshot.hasData || snapshot.data == null) {
             return const Text('No data available');
           } else {
