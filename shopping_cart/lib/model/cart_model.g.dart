@@ -26,7 +26,7 @@ class CartModelAdapter extends TypeAdapter<CartModel> {
       createdBy: fields[6] as CreatedBy?,
       lineItems: (fields[7] as List?)?.cast<LineItems>(),
       cartState: fields[8] as String?,
-      totalPrice: fields[9] as UnitPrice?,
+      totalPrice: fields[9] as TotalPrice?,
       shippingMode: fields[10] as String?,
       itemShippingAddresses:
           (fields[11] as List?)?.cast<ItemShippingAddresses>(),
@@ -184,16 +184,23 @@ class LineItemsAdapter extends TypeAdapter<LineItems> {
       productId: fields[1] as String?,
       quantity: fields[2] as int?,
       unitPrice: fields[3] as UnitPrice?,
-      totalPrice: fields[4] as UnitPrice?,
+      totalPrice: fields[4] as TotalPrice?,
       discounts: (fields[5] as List?)?.cast<Discounts>(),
       imageUrls: (fields[6] as List?)?.cast<String>(),
+      title: fields[7] as String?,
+      description: fields[8] as String?,
+      rating: fields[9] as double?,
+      stock: fields[10] as int?,
+      brand: fields[11] as String?,
+      category: fields[12] as String?,
+      thumbnail: fields[13] as String?,
     );
   }
 
   @override
   void write(BinaryWriter writer, LineItems obj) {
     writer
-      ..writeByte(7)
+      ..writeByte(14)
       ..writeByte(0)
       ..write(obj.id)
       ..writeByte(1)
@@ -207,7 +214,21 @@ class LineItemsAdapter extends TypeAdapter<LineItems> {
       ..writeByte(5)
       ..write(obj.discounts)
       ..writeByte(6)
-      ..write(obj.imageUrls);
+      ..write(obj.imageUrls)
+      ..writeByte(7)
+      ..write(obj.title)
+      ..writeByte(8)
+      ..write(obj.description)
+      ..writeByte(9)
+      ..write(obj.rating)
+      ..writeByte(10)
+      ..write(obj.stock)
+      ..writeByte(11)
+      ..write(obj.brand)
+      ..writeByte(12)
+      ..write(obj.category)
+      ..writeByte(13)
+      ..write(obj.thumbnail);
   }
 
   @override

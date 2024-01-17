@@ -22,7 +22,7 @@ class CartModel extends HiveObject {
   @HiveField(8)
   String? cartState;
   @HiveField(9)
-  UnitPrice? totalPrice;
+  TotalPrice? totalPrice;
   @HiveField(10)
   String? shippingMode;
   @HiveField(11)
@@ -77,7 +77,7 @@ class CartModel extends HiveObject {
     }
     cartState = json['cartState'];
     totalPrice = json['totalPrice'] != null
-        ? new UnitPrice.fromJson(json['totalPrice'])
+        ? new TotalPrice.fromJson(json['totalPrice'])
         : null;
     shippingMode = json['shippingMode'];
     if (json['itemShippingAddresses'] != null) {
@@ -190,20 +190,44 @@ class LineItems extends HiveObject {
   @HiveField(3)
   UnitPrice? unitPrice;
   @HiveField(4)
-  UnitPrice? totalPrice;
+  TotalPrice? totalPrice;
   @HiveField(5)
   List<Discounts>? discounts;
   @HiveField(6)
   List<String>? imageUrls;
 
-  LineItems(
-      {this.id,
-      this.productId,
-      this.quantity,
-      this.unitPrice,
-      this.totalPrice,
-      this.discounts,
-      this.imageUrls});
+  // Additional fields
+  @HiveField(7)
+  String? title;
+  @HiveField(8)
+  String? description;
+  @HiveField(9)
+  double? rating;
+  @HiveField(10)
+  int? stock;
+  @HiveField(11)
+  String? brand;
+  @HiveField(12)
+  String? category;
+  @HiveField(13)
+  String? thumbnail;
+
+  LineItems({
+    this.id,
+    this.productId,
+    this.quantity,
+    this.unitPrice,
+    this.totalPrice,
+    this.discounts,
+    this.imageUrls,
+    this.title,
+    this.description,
+    this.rating,
+    this.stock,
+    this.brand,
+    this.category,
+    this.thumbnail,
+  });
 
   LineItems.fromJson(Map<String, dynamic> json) {
     id = json['id'];
@@ -213,7 +237,7 @@ class LineItems extends HiveObject {
         ? new UnitPrice.fromJson(json['unitPrice'])
         : null;
     totalPrice = json['totalPrice'] != null
-        ? new UnitPrice.fromJson(json['totalPrice'])
+        ? new TotalPrice.fromJson(json['totalPrice'])
         : null;
     if (json['discounts'] != null) {
       discounts = <Discounts>[];
@@ -222,6 +246,15 @@ class LineItems extends HiveObject {
       });
     }
     imageUrls = json['imageUrls'].cast<String>();
+
+    // New fields
+    title = json['title'];
+    description = json['description'];
+    rating = json['rating'];
+    stock = json['stock'];
+    brand = json['brand'];
+    category = json['category'];
+    thumbnail = json['thumbnail'];
   }
 
   Map<String, dynamic> toJson() {
@@ -239,6 +272,16 @@ class LineItems extends HiveObject {
       data['discounts'] = this.discounts!.map((v) => v.toJson()).toList();
     }
     data['imageUrls'] = this.imageUrls;
+
+    // New fields
+    data['title'] = this.title;
+    data['description'] = this.description;
+    data['rating'] = this.rating;
+    data['stock'] = this.stock;
+    data['brand'] = this.brand;
+    data['category'] = this.category;
+    data['thumbnail'] = this.thumbnail;
+
     return data;
   }
 }
@@ -299,6 +342,46 @@ class Discounts extends HiveObject {
   }
 }
 
+// @HiveType(typeId: 6)
+// class TotalPrice extends HiveObject {
+//   @HiveField(0)
+//   String? type;
+//   @HiveField(1)
+//   String? currencyCode;
+//   @HiveField(2)
+//   int? centAmount;
+//   @HiveField(3)
+//   int? fractionDigits;
+//   @HiveField(4)
+//   Tax? tax;
+
+//   TotalPrice(
+//       {this.type,
+//       this.currencyCode,
+//       this.centAmount,
+//       this.fractionDigits,
+//       this.tax});
+
+//   TotalPrice.fromJson(Map<String, dynamic> json) {
+//     type = json['type'];
+//     currencyCode = json['currencyCode'];
+//     centAmount = json['centAmount'];
+//     fractionDigits = json['fractionDigits'];
+//     tax = json['tax'] != null ? new Tax.fromJson(json['tax']) : null;
+//   }
+
+//   Map<String, dynamic> toJson() {
+//     final Map<String, dynamic> data = new Map<String, dynamic>();
+//     data['type'] = this.type;
+//     data['currencyCode'] = this.currencyCode;
+//     data['centAmount'] = this.centAmount;
+//     data['fractionDigits'] = this.fractionDigits;
+//     if (this.tax != null) {
+//       data['tax'] = this.tax!.toJson();
+//     }
+//     return data;
+//   }
+// }
 @HiveType(typeId: 6)
 class TotalPrice extends HiveObject {
   @HiveField(0)

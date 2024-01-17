@@ -18,7 +18,7 @@
     "cartState": "Active",
     "totalPrice": {
       "type": "centPrecision",
-      "currencyCode": "EUR",
+      "currencyCode": "US",
       "centAmount": 0,
       "fractionDigits": 2,
       "tax": {"type": "percentage", "percentage": 10}
