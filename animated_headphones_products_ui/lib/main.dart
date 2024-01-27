@@ -1,7 +1,9 @@
 import 'package:animated_headphones_products_ui/screens/products_list_sreen.dart';
 import 'package:flutter/material.dart';
+import 'package:persistent_shopping_cart/persistent_shopping_cart.dart';
 
-void main() {
+void main() async {
+  await PersistentShoppingCart().init();
   runApp(const MyApp());
 }
 

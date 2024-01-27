@@ -1,7 +1,11 @@
+import 'package:animated_headphones_products_ui/models/headphones_model.dart';
 import 'package:flutter/material.dart';
+import 'package:persistent_shopping_cart/model/cart_model.dart';
+import 'package:persistent_shopping_cart/persistent_shopping_cart.dart';
 
 class ProductDetailScreen extends StatefulWidget {
-  const ProductDetailScreen({Key? key}) : super(key: key);
+  final HeadphonesModel item;
+  const ProductDetailScreen({Key? key, required this.item}) : super(key: key);
 
   @override
   State<ProductDetailScreen> createState() => _ProductDetailScreenState();
@@ -124,31 +128,74 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                                 const SizedBox(height: 20),
                                 Align(
                                   alignment: Alignment.centerLeft,
-                                  child: ElevatedButton.icon(
-                                    onPressed: () {},
-                                    icon: const Icon(
-                                      // <-- Icon
-                                      Icons.shopping_cart,
-                                      size: 24.0,
-                                      color: Colors.black,
-                                    ),
-                                    label: const Text(
-                                      '\$449.99',
-                                      style: TextStyle(
-                                        color: Colors.black,
-                                        fontSize: 20,
-                                        fontWeight: FontWeight.bold,
-                                      ),
-                                    ), // <-- Text
-                                    style: ElevatedButton.styleFrom(
-                                      backgroundColor: Colors.white,
+                                  child: PersistentShoppingCart()
+                                      .showAndUpdateCartItemWidget(
+                                    inCartWidget: Container(
+                                      width: 202,
+                                      decoration: BoxDecoration(
+                                          color: Colors.white,
+                                          borderRadius:
+                                              BorderRadius.circular(13)),
                                       padding: const EdgeInsets.symmetric(
                                           horizontal: 18, vertical: 16),
-                                      shape: RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.circular(
-                                            13), // Adjust the value as needed
+                                      child: Row(
+                                        // mainAxisSize: MainAxisSize.min,
+                                        children: [
+                                          const Text(
+                                            'Remove from ',
+                                            style: TextStyle(
+                                              color: Colors.black,
+                                              fontSize: 20,
+                                              fontWeight: FontWeight.bold,
+                                            ),
+                                          ), // <-- Text
+                                          const Icon(
+                                            // <-- Icon
+                                            Icons.shopping_cart,
+                                            // size: 24.0,
+                                            color: Colors.black,
+                                          ),
+                                        ],
                                       ),
                                     ),
+                                    notInCartWidget: Container(
+                                      width: 150,
+                                      decoration: BoxDecoration(
+                                          color: Colors.white,
+                                          borderRadius:
+                                              BorderRadius.circular(13)),
+                                      padding: const EdgeInsets.symmetric(
+                                          horizontal: 18, vertical: 16),
+                                      child: Row(
+                                        // mainAxisSize: MainAxisSize.min,
+                                        children: [
+                                          const Icon(
+                                            // <-- Icon
+                                            Icons.shopping_cart,
+                                            // size: 24.0,
+                                            color: Colors.black,
+                                          ),
+                                          const Text(
+                                            '\$449.99',
+                                            style: TextStyle(
+                                              color: Colors.black,
+                                              fontSize: 20,
+                                              fontWeight: FontWeight.bold,
+                                            ),
+                                          ), // <-- Text
+                                        ],
+                                      ),
+                                    ),
+                                    product: PersistentShoppingCartItem(
+                                        productId:
+                                            widget.item.productId.toString(),
+                                        productName: widget.item.productName,
+                                        unitPrice: double.parse(
+                                            widget.item.unitPrice.toString()),
+                                        productThumbnail: widget
+                                            .item.productThumbnail
+                                            .toString(),
+                                        quantity: 1),
                                   ),
                                 )
                               ],

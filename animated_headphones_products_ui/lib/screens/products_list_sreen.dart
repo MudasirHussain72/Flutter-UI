@@ -1,6 +1,11 @@
 import 'package:animated_headphones_products_ui/models/headphones_model.dart';
+import 'package:animated_headphones_products_ui/screens/cart_screen.dart';
 import 'package:animated_headphones_products_ui/screens/product_detail_screen.dart';
 import 'package:flutter/material.dart';
+
+import 'package:flutter/material.dart';
+import 'package:persistent_shopping_cart/model/cart_model.dart';
+import 'package:persistent_shopping_cart/persistent_shopping_cart.dart';
 
 class ProductsListScreen extends StatefulWidget {
   // ignore: use_key_in_widget_constructors
@@ -76,9 +81,25 @@ class _ProductsListScreenState extends State<ProductsListScreen>
         backgroundColor: Colors.transparent,
         leading: IconButton(
           onPressed: () {},
-          icon: const Icon(Icons.arrow_back_ios),
+          icon: const Icon(Icons.search),
         ),
-        actions: [IconButton(onPressed: () {}, icon: const Icon(Icons.search))],
+        actions: [
+          PersistentShoppingCart().showCartItemCountWidget(
+            cartItemCountWidgetBuilder: (itemCount) => IconButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const CartView()),
+                );
+              },
+              icon: Badge(
+                label: Text(itemCount.toString()),
+                child: const Icon(Icons.shopping_bag_outlined),
+              ),
+            ),
+          ),
+          const SizedBox(width: 20.0)
+        ],
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -133,7 +154,8 @@ class _ProductsListScreenState extends State<ProductsListScreen>
                     onTap: () => Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => ProductDetailScreen())),
+                            builder: (context) =>
+                                ProductDetailScreen(item: headphones[index]))),
                     child: Container(
                       margin: const EdgeInsets.all(10), // Consistent margin
                       padding: const EdgeInsets.all(20), // Consistent padding
@@ -153,7 +175,8 @@ class _ProductsListScreenState extends State<ProductsListScreen>
                             decoration: BoxDecoration(
                               image: DecorationImage(
                                 fit: BoxFit.fitHeight,
-                                image: AssetImage(headphones[index].image),
+                                image: AssetImage(
+                                    headphones[index].productThumbnail),
                               ),
                             ),
                           ),
@@ -161,14 +184,14 @@ class _ProductsListScreenState extends State<ProductsListScreen>
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                headphones[index].name,
+                                headphones[index].productName,
                                 style: const TextStyle(
                                   fontWeight: FontWeight.bold,
                                 ),
                               ),
                               const SizedBox(height: 10),
                               Text(
-                                headphones[index].price,
+                                '\$ ${headphones[index].unitPrice}',
                                 style: const TextStyle(
                                     // color: Color(
                                     //     0xFFEBEBEB), // Adjust text color as needed

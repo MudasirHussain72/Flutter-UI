@@ -1,53 +1,63 @@
 class HeadphonesModel {
   HeadphonesModel({
-    required this.name,
-    required this.image,
-    required this.price,
+    required this.productId,
+    required this.productName,
+    required this.productThumbnail,
+    required this.unitPrice,
   });
-  final String name;
-  final String image;
-  final String price;
+  final String productId;
+  final String productName;
+  final String productThumbnail;
+  final String unitPrice;
 }
 
-final headphones = [
+List<HeadphonesModel> headphones = [
   HeadphonesModel(
-    name: 'QuietComfort 35 wireless headphones II',
-    image: 'assets/images/headphone1.png',
-    price: '\$449.99',
+    productId: '1',
+    productName: 'QuietComfort 35 wireless headphones II',
+    productThumbnail: 'assets/images/headphone1.png',
+    unitPrice: '449.99',
   ),
   HeadphonesModel(
-    name: 'SoundLink® aroundear wireless headphones',
-    image: 'assets/images/headphone2.png',
-    price: '\$269.99',
+    productId: '2',
+    productName: 'SoundLink® aroundear wireless headphones',
+    productThumbnail: 'assets/images/headphone2.png',
+    unitPrice: '269.99',
   ),
   HeadphonesModel(
-    name: 'Bose Noise Cancelling Headphones 700',
-    image: 'assets/images/headphone3.png',
-    price: '\$209.99',
+    productId: '3',
+    productName: 'Bose Noise Cancelling Headphones 700',
+    productThumbnail: 'assets/images/headphone3.png',
+    unitPrice: '209.99',
   ),
   HeadphonesModel(
-    name: 'QuietComfort 35 wireless headphones II',
-    image: 'assets/images/headphone4.png',
-    price: 'Coming Soon',
+    productId: '4',
+    productName: 'QuietComfort 35 wireless headphones II',
+    productThumbnail: 'assets/images/headphone4.png',
+    unitPrice: 'Coming Soon',
   ),
   HeadphonesModel(
-    name: 'QuietComfort 35 wireless headphones II',
-    image: 'assets/images/headphone1.png',
-    price: '\$449.99',
+    productId: '5',
+    productName: 'QuietComfort 35 wireless headphones II',
+    productThumbnail: 'assets/images/headphone1.png',
+    unitPrice: '449.99',
   ),
   HeadphonesModel(
-    name: 'SoundLink® aroundear wireless headphones',
-    image: 'assets/images/headphone2.png',
-    price: '\$269.99',
+    productId: '6',
+    productName: 'SoundLink® aroundear wireless headphones',
+    productThumbnail: 'assets/images/headphone2.png',
+    unitPrice: '269.99',
   ),
   HeadphonesModel(
-    name: 'Bose Noise Cancelling Headphones 700',
-    image: 'assets/images/headphone3.png',
-    price: '\$209.99',
+    productId: '7',
+    productName: 'Bose Noise Cancelling Headphones 700',
+    productThumbnail: 'assets/images/headphone3.png',
+    unitPrice: '209.99',
   ),
   HeadphonesModel(
-    name: 'QuietComfort 35 wireless headphones II',
-    image: 'assets/images/headphone4.png',
-    price: 'Coming Soon',
+    productId: '8',
+    productName: 'QuietComfort 35 wireless headphones II',
+    productThumbnail: 'assets/images/headphone4.png',
+    unitPrice: 'Coming Soon',
   ),
 ];
