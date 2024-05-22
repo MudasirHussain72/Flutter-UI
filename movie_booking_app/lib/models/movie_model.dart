@@ -15,19 +15,23 @@ final movies = [
   ),
   Movie(
     name: 'All quiet on the western front',
-    image: 'https://i.pinimg.com/originals/c4/b7/36/c4b736cbbc8caea7179a513ca9dd717b.jpg',
+    image:
+        'https://i.pinimg.com/originals/c4/b7/36/c4b736cbbc8caea7179a513ca9dd717b.jpg',
   ),
   Movie(
     name: 'Top gunn - Maverick',
-    image: 'https://images.hdqwalls.com/download/2022-top-gun-maverick-zz-1080x1920.jpg',
+    image:
+        'https://images.hdqwalls.com/download/2022-top-gun-maverick-zz-1080x1920.jpg',
   ),
   Movie(
     name: 'Avatar - The way of water',
-    image: 'https://i.pinimg.com/originals/5d/82/af/5d82afebae0e8e8e8e21b0a48e418c4b.jpg',
+    image:
+        'https://i.pinimg.com/originals/5d/82/af/5d82afebae0e8e8e8e21b0a48e418c4b.jpg',
   ),
   Movie(
     name: 'Elvis',
-    image: 'https://images.wallpapersden.com/image/download/elvis-movie-2022_bWdlaGeUmZqaraWkpJRmZ21lrWdmZ2U.jpg',
+    image:
+        'https://images.wallpapersden.com/image/download/elvis-movie-2022_bWdlaGeUmZqaraWkpJRmZ21lrWdmZ2U.jpg',
   ),
   Movie(
     name: 'Argentina',
@@ -47,7 +51,8 @@ final movies = [
   ),
   Movie(
     name: 'Turning red',
-    image: 'https://i.pinimg.com/originals/4b/fd/1e/4bfd1e6e2a0fc4a557ddcea4fba07207.jpg',
+    image:
+        'https://i.pinimg.com/originals/4b/fd/1e/4bfd1e6e2a0fc4a557ddcea4fba07207.jpg',
   ),
   Movie(
     name: 'Mario',
@@ -74,11 +79,17 @@ final movies = [
   ),
   Movie(
     name: 'Babylon',
-    image: 'https://assets.gadgets360cdn.com/pricee/assets/product/202212/babylon_poster_1672374652.jpeg',
+    image:
+        'https://assets.gadgets360cdn.com/pricee/assets/product/202212/babylon_poster_1672374652.jpeg',
   ),
+  // Movie(
+  //   name: 'The Batman',
+  //   image: 'https://trailers.apple.com/trailers/wb/the-batman/images/poster-large.jpg?lastmod=1',
+  // ),
   Movie(
-    name: 'The Batman',
-    image: 'https://trailers.apple.com/trailers/wb/the-batman/images/poster-large.jpg?lastmod=1',
+    name: 'The Fabelmans',
+    image:
+        'https://images.fandango.com/ImageRenderer/820/0/redesign/static/img/default_poster.png/0/images/masterrepository/fandango/229098/FBM_Tsr1Sheet5_RGB_1.jpg',
   ),
   Movie(
     name: 'The Fabelmans',

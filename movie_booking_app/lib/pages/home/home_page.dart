@@ -1,4 +1,6 @@
+import 'dart:math';
 import 'package:flutter/material.dart';
+import 'package:movie_booking_app/models/movie_model.dart';
 import 'package:movie_booking_app/pages/home/widgets/all_movies.dart';
 import 'package:movie_booking_app/pages/home/widgets/app_header.dart';
 import 'package:movie_booking_app/pages/home/widgets/app_navigation.dart';
@@ -14,9 +16,29 @@ class _HomePageState extends State<HomePage> {
   late Size size;
   double top = -300;
   double left = -300;
+  late double maxTop;
+  late double maxLeft;
+
   @override
   void initState() {
     super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      final moviesSize = calculateMoviesSize();
+      setState(() {
+        maxTop = (size.height - moviesSize.height)
+            .clamp(double.negativeInfinity, 0.0);
+        maxLeft =
+            (size.width - moviesSize.width).clamp(double.negativeInfinity, 0.0);
+      });
+    });
+  }
+
+  Size calculateMoviesSize() {
+    final columns = (sqrt(movies.length)).toInt();
+    final width = columns * 320;
+    final rows = (movies.length / columns).ceil();
+    final height = rows * 480;
+    return Size(width.toDouble(), height.toDouble());
   }
 
   @override
@@ -25,12 +47,9 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       body: GestureDetector(
         onPanUpdate: (details) {
-          var topPos = top + (details.delta.dy * 1.5);
-          var leftPos = left + (details.delta.dx * 1.5);
-          //set the state
           setState(() {
-            top = topPos;
-            left = leftPos;
+            top = (top + (details.delta.dy * 1.5)).clamp(maxTop, 0.0);
+            left = (left + (details.delta.dx * 1.5)).clamp(maxLeft, 0.0);
           });
         },
         child: Container(
