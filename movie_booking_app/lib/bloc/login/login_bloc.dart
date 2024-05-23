@@ -1,6 +1,7 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movie_booking_app/data/response/response.dart';
+import 'package:movie_booking_app/models/user/user.dart';
 import 'package:movie_booking_app/repository/auth_api/login_repository.dart';
 import 'package:movie_booking_app/services/session_manager/session_controller.dart';
 part 'login_events.dart';
@@ -31,7 +32,11 @@ class LoginBloc extends Bloc<LoginEvents, LoginStates> {
           emit(state.copyWith(
               message: value.error, postApiStatus: PostApiStatus.error));
         } else {
-          await SessionController().saveUserInPreference(value);
+          var valueEdited = User(
+            email: state.email.toString(),
+            token: value.token,
+          );
+          await SessionController().saveUserInPreference(valueEdited);
           await SessionController().getUserFromPreference();
           emit(state.copyWith(
               message: 'Login Successfull: ${value.token}',

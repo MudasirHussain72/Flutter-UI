@@ -61,4 +61,14 @@ class SessionController {
       debugPrint(e.toString());
     }
   }
+
+  Future<void> removeUserFromPreference() async {
+    try {
+      // Storing value to check login
+      sharedPreferenceClass.setValue('isLogin', 'false');
+      sharedPreferenceClass.clearValue('token');
+    } catch (e) {
+      debugPrint(e.toString());
+    }
+  }
 }

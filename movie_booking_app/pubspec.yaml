@@ -46,6 +46,8 @@ dependencies:
   cached_network_image: ^3.3.1
   google_fonts: ^6.2.1
   shimmer: ^3.0.0
+  flutter_neumorphic: ^3.2.0
+  flutter_svg: ^2.0.10+1
 
 dev_dependencies:
   flutter_test:
@@ -75,6 +77,7 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - assets/
+    - assets/icons/
     - assets/images/
 
   # An image asset can refer to one or more resolution-specific "variants", see

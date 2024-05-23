@@ -8,6 +8,7 @@ class User with _$User {
   factory User({
     @Default('') @JsonKey(name: 'token') String token,
     @Default('') @JsonKey(name: 'error') String error,
+    @Default('') @JsonKey(name: 'email') String email,
   }) = _User;
 
   factory User.fromJson(Map<String, dynamic> json) => _$UserFromJson(json);

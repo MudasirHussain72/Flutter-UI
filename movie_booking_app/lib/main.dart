@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
+import 'package:movie_booking_app/bloc/popular_movies_bloc/popular_movies_bloc.dart';
 import 'package:movie_booking_app/configs/routes%20/routes.dart';
 import 'package:movie_booking_app/configs/routes%20/routes_name.dart';
 import 'package:movie_booking_app/configs/themes/themes.dart';
@@ -20,13 +22,21 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      themeMode: ThemeMode.dark, // Setting theme mode to dark
-      theme: lightTheme, // Setting light theme
-      darkTheme: darkTheme, // Setting dark theme
-      initialRoute: RoutesName.splash, // Initial route
-      onGenerateRoute: Routes.generateRoute, // Generating routes
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider<PopularMoviesBloc>(
+          create: (BuildContext context) =>
+              PopularMoviesBloc(moviesApiRepository: getIt()),
+        ),
+      ],
+      child: MaterialApp(
+        title: 'Flutter Demo',
+        themeMode: ThemeMode.dark, // Setting theme mode to dark
+        theme: lightTheme, // Setting light theme
+        darkTheme: darkTheme, // Setting dark theme
+        initialRoute: RoutesName.splash, // Initial route
+        onGenerateRoute: Routes.generateRoute, // Generating routes
+      ),
     );
   }
 }

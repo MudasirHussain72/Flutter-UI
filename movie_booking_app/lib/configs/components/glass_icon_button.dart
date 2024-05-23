@@ -1,5 +1,4 @@
 import 'dart:ui';
-
 import 'package:flutter/material.dart';
 
 class GlassIconButton extends StatelessWidget {
@@ -7,11 +6,13 @@ class GlassIconButton extends StatelessWidget {
     super.key,
     required this.icon,
     this.onTap,
+    this.height = 70,
+    this.width = 70,
   });
 
   final Widget icon;
   final VoidCallback? onTap;
-
+  final double? height, width;
   @override
   Widget build(BuildContext context) {
     return InkWell(
@@ -21,8 +22,8 @@ class GlassIconButton extends StatelessWidget {
         child: BackdropFilter(
           filter: ImageFilter.blur(sigmaX: 8, sigmaY: 8),
           child: Container(
-            width: 70,
-            height: 70,
+            width: width,
+            height: height,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(35),
               color: Colors.white.withOpacity(.35),
