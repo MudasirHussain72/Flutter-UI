@@ -2,9 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:movie_booking_app/configs/components/glass_icon_button.dart';
 
 class AppHeader extends StatelessWidget {
-  const AppHeader({
-    super.key,
-  });
+  const AppHeader({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -16,16 +14,16 @@ class AppHeader extends StatelessWidget {
           children: [
             GlassIconButton(
               icon: Icon(
-                Icons.notifications_outlined,
+                Icons.favorite,
                 color: Colors.white,
               ),
             ),
-            GlassIconButton(
-              icon: Icon(
-                Icons.search,
-                color: Colors.white,
-              ),
-            ),
+            // GlassIconButton(
+            //   icon: Icon(
+            //     Icons.search,
+            //     color: Colors.white,
+            //   ),
+            // ),
           ],
         ),
       ),
